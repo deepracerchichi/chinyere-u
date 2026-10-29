@@ -180,14 +180,80 @@ const projects = [
     },
 ];
 
+// Every tool from the resume's skills summary. Each group is one baggage carousel; each tool is a bag on it.
+// code: the letters printed on the bag. label: a shorter name for the luggage tag (optional). lore: the one-line joke.
 const toolGroups = [
-    { title: "Languages", tools: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"] },
-    { title: "Frontend and UI", tools: ["React.js", "Next.js", "React Native", "Three.js", "Tailwind CSS", "GSAP"] },
-    { title: "Backend and APIs", tools: ["Node.js", "Express.js", "REST API design", "Socket.IO", "JWT auth", "OAuth 2.0", "Zod", "Rate limiting"] },
-    { title: "AI and queues", tools: ["Gemini API", "Prompt design", "BullMQ", "Redis (Upstash)"] },
-    { title: "Data and infrastructure", tools: ["MongoDB (Mongoose)", "PostgreSQL", "Docker", "AWS EC2", "systemd", "Caddy", "Appwrite", "Cloudinary"] },
-    { title: "Tools and testing", tools: ["Git and GitHub", "Vite", "Vercel", "Render", "VS Code", "WebStorm", "Vitest", "Jest", "Supertest"] },
+    {
+        title: "Languages",
+        tools: [
+            { id: "ts", name: "TypeScript", code: "TS", lore: "Catches the bug before your users do." },
+            { id: "js", name: "JavaScript (ES6+)", label: "JavaScript", code: "JS", lore: "Runs everywhere. Sometimes even correctly." },
+            { id: "html", name: "HTML5", code: "H5", lore: "The skeleton of everything on the web." },
+            { id: "css", name: "CSS3", code: "C3", lore: "Centring a div: solved. Mostly." },
+        ],
+    },
+    {
+        title: "Frontend and UI",
+        tools: [
+            { id: "react", name: "React.js", label: "React", code: "Rx", lore: "Everything is a component. Including this tooltip." },
+            { id: "next", name: "Next.js", code: "Nx", lore: "Pages, layouts and a build step with opinions." },
+            { id: "rn", name: "React Native", label: "Native", code: "RN", lore: "Write once, debug on two platforms." },
+            { id: "three", name: "Three.js", code: "3D", lore: "Turns maths into things you can spin around." },
+            { id: "tw", name: "Tailwind CSS", label: "Tailwind", code: "Tw", lore: "Styles in the markup. Thirty classes per button." },
+            { id: "gsap", name: "GSAP", code: "Gs", lore: "If it moves on this site, GSAP moved it." },
+        ],
+    },
+    {
+        title: "Backend and APIs",
+        tools: [
+            { id: "node", name: "Node.js", label: "Node", code: "No", lore: "One language from the browser to the database." },
+            { id: "express", name: "Express.js", label: "Express", code: "Ex", lore: "A small, quiet framework that does a lot." },
+            { id: "rest", name: "REST API design", label: "REST", code: "API", lore: "Nouns for URLs, verbs for methods." },
+            { id: "socket", name: "Socket.IO", label: "Socket.IO", code: "Io", lore: "Powers the live messaging in nestFind." },
+            { id: "jwt", name: "JWT auth", label: "JWT", code: "JWT", lore: "Stamped letters, as I wrote on DEV." },
+            { id: "oauth", name: "OAuth 2.0", label: "OAuth", code: "OA", lore: "Least privilege, as in Connuit's Gmail step." },
+            { id: "zod", name: "Zod", code: "Zd", lore: "Trust nothing that comes over the wire." },
+            { id: "rate", name: "Rate limiting", label: "Rate limit", code: "RL", lore: "A polite way of saying slow down." },
+        ],
+    },
+    {
+        title: "AI and queues",
+        tools: [
+            { id: "gemini", name: "Gemini API", label: "Gemini", code: "Ge", lore: "Teaches software to read, write and decide." },
+            { id: "prompt", name: "Prompt design", label: "Prompts", code: "Pr", lore: "Ask clearly, get clearly." },
+            { id: "bullmq", name: "BullMQ", code: "Bq", lore: "Runs Connuit's workflow queue." },
+            { id: "redis", name: "Redis (Upstash)", label: "Redis", code: "Rd", lore: "Remembers things so the database doesn't have to." },
+        ],
+    },
+    {
+        title: "Data and infrastructure",
+        tools: [
+            { id: "mongo", name: "MongoDB (Mongoose)", label: "MongoDB", code: "Mg", lore: "Where most of my data lives." },
+            { id: "pg", name: "PostgreSQL", label: "Postgres", code: "Pg", lore: "Keeps glycotrac's data private, user by user." },
+            { id: "docker", name: "Docker", code: "Dk", lore: "Ship the machine along with the code." },
+            { id: "ec2", name: "AWS EC2", label: "AWS EC2", code: "EC2", lore: "Hosts Connuit's API." },
+            { id: "systemd", name: "systemd", code: "Sd", lore: "Keeps the server up when nobody is watching." },
+            { id: "caddy", name: "Caddy", code: "Cd", lore: "HTTPS without the paperwork." },
+            { id: "appwrite", name: "Appwrite", code: "Aw", lore: "Behind Altread, my book tracker." },
+            { id: "cloudinary", name: "Cloudinary", label: "Cloudinary", code: "Cl", lore: "Stores nestFind's listing photos." },
+        ],
+    },
+    {
+        title: "Tools and testing",
+        tools: [
+            { id: "git", name: "Git and GitHub", label: "Git", code: "Gt", lore: "Time travel, with commit messages." },
+            { id: "vite", name: "Vite", code: "Vi", lore: "This site builds in about four seconds." },
+            { id: "vercel", name: "Vercel", code: "Vc", lore: "Where this site lives." },
+            { id: "render", name: "Render", code: "Rn", lore: "Hosts Sheila and nestFind's API." },
+            { id: "vscode", name: "VS Code", code: "VS", lore: "The home screen of every working day." },
+            { id: "webstorm", name: "WebStorm", code: "WS", lore: "The other editor, for when I want it to do more." },
+            { id: "vitest", name: "Vitest", code: "Vt", lore: "Tests that finish before you look away." },
+            { id: "jest", name: "Jest", code: "Je", lore: "The classic. Still gets the job done." },
+            { id: "supertest", name: "Supertest", code: "St", lore: "Calls my endpoints so I don't have to." },
+        ],
+    },
 ];
+
 
 const experience = [
     {
